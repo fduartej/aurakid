@@ -14,7 +14,7 @@ from src.rag.chain import fuentes_para_metadata, generar_respuesta_stream, recup
 from src.ui.chat_components import render_fuentes, render_mensaje
 from src.ui.session import obtener_propietario_id
 
-st.set_page_config(page_title="Asistente documental", page_icon="💬", layout="wide")
+st.set_page_config(page_title="Asistente Procesos AURITA", page_icon="💬", layout="wide")
 init_db()
 
 propietario_id = obtener_propietario_id()
@@ -65,7 +65,7 @@ with st.sidebar:
         st.caption("Aún no tienes conversaciones. Crea una para empezar.")
 
 # --- Área principal: chat ---------------------------------------------------------
-st.title("💬 Asistente documental")
+st.title("💬 Asistente Procesos AURITA")
 
 conversacion_id = st.session_state.get("conversacion_id")
 
