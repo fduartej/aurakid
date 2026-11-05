@@ -1,0 +1,13 @@
+streamlit>=1.38.0
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-text-splitters>=0.3.0
+langchain-groq>=0.2.0
+qdrant-client>=1.11.0
+sentence-transformers>=3.0.0
+pypdf>=4.3.0
+python-dotenv>=1.0.1
+pydantic>=2.8.0
+
+# Tests
+pytest>=8.0.0
