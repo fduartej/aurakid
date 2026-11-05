@@ -4,6 +4,8 @@ Chatbot documental: responde preguntas basándose en documentos indexados en Qdr
 mantiene conversaciones persistentes en SQLite y genera respuestas en streaming con
 LangChain + Groq.
 
+![Aurita Open Source](imagen.png)
+
 ## Arquitectura
 
 ```
@@ -43,11 +45,11 @@ reutilices la colección actual con un modelo distinto.
 
 ### Esquema SQLite
 
-| Entidad | Campos |
-|---|---|
-| `conversaciones` | `id, titulo, propietario_id, creada_en, actualizada_en` |
-| `mensajes` | `id, conversacion_id, orden, rol, contenido, estado, creado_en, metadata_json` |
-| `documentos` | `id, nombre_archivo, tipo, tamano_bytes, propietario_id, estado, num_fragmentos, error_detalle, creado_en` |
+| Entidad          | Campos                                                                                                     |
+| ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| `conversaciones` | `id, titulo, propietario_id, creada_en, actualizada_en`                                                    |
+| `mensajes`       | `id, conversacion_id, orden, rol, contenido, estado, creado_en, metadata_json`                             |
+| `documentos`     | `id, nombre_archivo, tipo, tamano_bytes, propietario_id, estado, num_fragmentos, error_detalle, creado_en` |
 
 `metadata_json` guarda, para respuestas de asistente, las fuentes recuperadas, sus
 puntuaciones y el modelo usado. `st.session_state` solo se usa para estado efímero de
