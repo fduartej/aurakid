@@ -107,6 +107,21 @@ python -m venv .venv
 > El primer uso descarga el modelo de embeddings desde Hugging Face: requiere acceso
 > a internet saliente la primera vez (se cachea localmente después).
 
+## Despliegue en Render
+
+1. Crea un servicio nuevo de tipo **Web Service** y selecciona **Docker** como entorno.
+2. Configura las variables `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION`,
+   `GROQ_API_KEY` y `ADMIN_PASSWORD` en el panel de Render. Añade también cualquier
+   otra variable necesaria de `.env.example`.
+3. Si quieres conservar conversaciones y documentos registrados tras reinicios o
+   despliegues, añade un disco persistente montado en `/var/data` y configura
+   `SQLITE_PATH=/var/data/chat_history.db`. Sin ese disco, el sistema de archivos del
+   servicio no es persistente.
+
+El contenedor usa automáticamente el puerto `PORT` que Render asigna. La primera
+consulta que necesite embeddings descarga el modelo de Hugging Face, por lo que puede
+tardar más y requiere acceso saliente a internet.
+
 ## Tests
 
 ```powershell

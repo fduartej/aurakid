@@ -1,0 +1,11 @@
+.git
+.venv
+venv
+__pycache__
+*.py[cod]
+*.egg-info
+.pytest_cache
+.env
+.streamlit/secrets.toml
+data/*.db
+data/*.db-journal
