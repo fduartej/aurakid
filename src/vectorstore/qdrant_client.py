@@ -81,13 +81,14 @@ def buscar(
     client = get_client()
     if not client.collection_exists(settings.qdrant_collection):
         return []
-    resultados = client.search(
+    resultados = client.query_points(
         collection_name=settings.qdrant_collection,
-        query_vector=(settings.qdrant_vector_name, vector_consulta),
+        query=vector_consulta,
+        using=settings.qdrant_vector_name,
         limit=top_k or settings.retrieval_top_k,
         score_threshold=score_threshold if score_threshold is not None else settings.retrieval_score_threshold,
         with_payload=True,
-    )
+    ).points
     fragmentos = []
     for punto in resultados:
         payload = dict(punto.payload or {})
